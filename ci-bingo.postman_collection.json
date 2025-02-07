@@ -1,0 +1,485 @@
+{
+	"info": {
+		"_postman_id": "f0dae554-b24a-4b96-9222-0ea363c5beef",
+		"name": "ci-bingo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "40403403"
+	},
+	"item": [
+		{
+			"name": "bingo",
+			"item": [
+				{
+					"name": "Listar bingos",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/bingo/listar-bingos",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"bingo",
+								"listar-bingos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Registrar bingo",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"motivo\": \"Pro salud\",\r\n  \"fechaJuego\": \"06/02/2025\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/bingo/crear-bingo",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"bingo",
+								"crear-bingo"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "carton",
+			"item": [
+				{
+					"name": "Generar carton",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombre\": \"Luchito\",\r\n  \"bingoId\": \"67a559cfdc5e325a849da854\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/carton/crear-cartones",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"carton",
+								"crear-cartones"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar cartones",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/carton/listar-cartones",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"carton",
+								"listar-cartones"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "numeroBingo",
+			"item": [
+				{
+					"name": "Generar numero aleatorio para el bingo",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/numero/generar-numero?bingoId=67a559cfdc5e325a849da854",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"numero",
+								"generar-numero"
+							],
+							"query": [
+								{
+									"key": "bingoId",
+									"value": "67a559cfdc5e325a849da854"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar numeros aleatorios del bingo",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/numero/listar-numeros?bingoId=67a559cfdc5e325a849da854",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"numero",
+								"listar-numeros"
+							],
+							"query": [
+								{
+									"key": "bingoId",
+									"value": "67a559cfdc5e325a849da854"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Validar carton",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"numeros\": \"1, 2, 4, 6, 10, 14, 35, 41, 43, 45, 16, 19, 24, 27, 29, 50, 52, 53, 54, 55, 61, 64, 69, 74, 73, 60, 75\",\r\n  \"cartonId\": \"67a55a53dc5e325a849da856\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/numero/validar-numeros-bingo",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"numero",
+								"validar-numeros-bingo"
+							],
+							"query": [
+								{
+									"key": "numeros",
+									"value": "1, 2, 4, 6, 10, 14, 35, 41, 43, 45, 16, 19, 24, 27, 29, 50, 52, 53, 54, 55, 61, 64, 69, 74, 73, 60, 75",
+									"disabled": true
+								},
+								{
+									"key": "cartonId",
+									"value": "67a55a53dc5e325a849da856",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "gcp",
+			"item": [
+				{
+					"name": "bingo",
+					"item": [
+						{
+							"name": "Listar bingos Copy",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://bingo-829260433579.us-central1.run.app/bingo/listar-bingos",
+									"protocol": "https",
+									"host": [
+										"bingo-829260433579",
+										"us-central1",
+										"run",
+										"app"
+									],
+									"path": [
+										"bingo",
+										"listar-bingos"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Registrar bingo Copy",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"motivo\": \"Pro salud\",\r\n  \"fechaJuego\": \"06/02/2025\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://bingo-829260433579.us-central1.run.app/bingo/crear-bingo",
+									"protocol": "https",
+									"host": [
+										"bingo-829260433579",
+										"us-central1",
+										"run",
+										"app"
+									],
+									"path": [
+										"bingo",
+										"crear-bingo"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "carton",
+					"item": [
+						{
+							"name": "Generar carton Copy",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"nombre\": \"Cristiano\",\r\n  \"bingoId\": \"67a559cfdc5e325a849da854\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://bingo-829260433579.us-central1.run.app/carton/crear-cartones",
+									"protocol": "https",
+									"host": [
+										"bingo-829260433579",
+										"us-central1",
+										"run",
+										"app"
+									],
+									"path": [
+										"carton",
+										"crear-cartones"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Listar cartones Copy",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://bingo-829260433579.us-central1.run.app/carton/listar-cartones",
+									"protocol": "https",
+									"host": [
+										"bingo-829260433579",
+										"us-central1",
+										"run",
+										"app"
+									],
+									"path": [
+										"carton",
+										"listar-cartones"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "numeroBingo",
+					"item": [
+						{
+							"name": "Generar numero aleatorio para el bingo Copy",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "https://bingo-829260433579.us-central1.run.app/numero/generar-numero?bingoId=67a559cfdc5e325a849da854",
+									"protocol": "https",
+									"host": [
+										"bingo-829260433579",
+										"us-central1",
+										"run",
+										"app"
+									],
+									"path": [
+										"numero",
+										"generar-numero"
+									],
+									"query": [
+										{
+											"key": "bingoId",
+											"value": "67a559cfdc5e325a849da854"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Validar carton Copy",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"numeros\": \"1, 2, 4, 6, 10, 14, 35, 41, 43, 45, 16, 19, 24, 27, 29, 50, 52, 53, 54, 55, 61, 64, 69, 74, 73, 60, 75\",\r\n  \"cartonId\": \"67a55a53dc5e325a849da856\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://bingo-829260433579.us-central1.run.app/numero/validar-numeros-bingo",
+									"protocol": "https",
+									"host": [
+										"bingo-829260433579",
+										"us-central1",
+										"run",
+										"app"
+									],
+									"path": [
+										"numero",
+										"validar-numeros-bingo"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Listar numeros aleatorios del bingo Copy",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/numero/listar-numeros?bingoId=67a559cfdc5e325a849da854",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"numero",
+										"listar-numeros"
+									],
+									"query": [
+										{
+											"key": "bingoId",
+											"value": "67a559cfdc5e325a849da854"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
