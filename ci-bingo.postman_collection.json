@@ -458,11 +458,14 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "localhost:8080/numero/listar-numeros?bingoId=67a559cfdc5e325a849da854",
+									"raw": "https://bingo-829260433579.us-central1.run.app/numero/listar-numeros?bingoId=67a559cfdc5e325a849da854",
+									"protocol": "https",
 									"host": [
-										"localhost"
+										"bingo-829260433579",
+										"us-central1",
+										"run",
+										"app"
 									],
-									"port": "8080",
 									"path": [
 										"numero",
 										"listar-numeros"
